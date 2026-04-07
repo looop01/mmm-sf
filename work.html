@@ -93,7 +93,7 @@
   /* ── Header ── */
   .page-header {
     position: relative;
-    padding: 9rem 6vw 4rem;
+    padding: 4rem 6vw 4rem;
     z-index: 1;
     border-bottom: 1px solid rgba(6,90,130,0.25);
     overflow: hidden;
@@ -530,11 +530,8 @@
 
 <div class="top-bar"></div>
 
-<nav>
-  <a class="nav-logo" href="index.html">MMM</a>
-  <ul class="nav-links">
-    <li><a href="work.html" class="active">Daisuke Abe</a></li>
-  </ul>
+<nav style="position:fixed;top:3px;left:0;right:0;padding:0.9rem 6vw;display:flex;justify-content:flex-end;align-items:center;z-index:99;background:linear-gradient(180deg,rgba(10,10,15,0.92),transparent)">
+  <a href="index.html" style="font-family:'Barlow Condensed',sans-serif;font-size:9px;letter-spacing:0.2em;color:#5EEAD4;text-decoration:none;text-transform:uppercase;border:1px solid rgba(94,234,212,0.4);padding:0.24rem 0.6rem;transition:color 0.2s,border-color 0.2s" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(94,234,212,0.8)'" onmouseout="this.style.color='#5EEAD4';this.style.borderColor='rgba(94,234,212,0.4)'">MMM</a>
 </nav>
 
 <!-- HEADER -->
