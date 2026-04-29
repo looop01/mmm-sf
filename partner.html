@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partner Program — MMM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400&family=Barlow+Condensed:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --black:#0A0A0F; --ocean:#065A82; --teal:#0D9488;
+  --seafoam:#5EEAD4; --sand:#E7D9C8; --muted:#8AA5B0; --warm:#C4956A;
+}
+html { scroll-behavior: smooth; }
+body { background:var(--black); color:var(--sand); font-family:'Barlow',sans-serif; font-weight:300; overflow-x:hidden; }
+.top-bar { position:fixed; top:0; left:0; right:0; height:3px; background:var(--teal); z-index:100; }
+nav { position:fixed; top:3px; left:0; right:0; padding:0.9rem 6vw; display:flex; justify-content:space-between; align-items:center; z-index:99; background:linear-gradient(180deg,rgba(10,10,15,0.95),transparent); }
+.nav-logo { font-family:'Cormorant Garamond',serif; font-weight:600; font-size:20px; color:#fff; text-decoration:none; letter-spacing:0.04em; }
+.nav-right { display:flex; align-items:center; gap:1.2rem; }
+.nav-back { font-family:'Barlow Condensed',sans-serif; font-size:10px; letter-spacing:0.2em; color:var(--muted); text-decoration:none; text-transform:uppercase; transition:color 0.2s; }
+.nav-back:hover { color:var(--seafoam); }
+#lang-btn { font-family:'Barlow Condensed',sans-serif; font-size:10px; letter-spacing:0.18em; color:var(--muted); background:none; border:1px solid rgba(138,165,176,0.25); padding:0.28rem 0.65rem; cursor:pointer; text-transform:uppercase; transition:color 0.2s,border-color 0.2s; line-height:1; }
+#lang-btn:hover { color:var(--seafoam); border-color:rgba(94,234,212,0.4); }
+.page { max-width:740px; margin:0 auto; padding:7rem 6vw 6rem; }
+.page-eyebrow { font-family:'Barlow Condensed',sans-serif; font-size:10px; letter-spacing:0.28em; color:var(--teal); text-transform:uppercase; margin-bottom:1.4rem; }
+.page-title { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:clamp(36px,6vw,72px); line-height:1.0; color:#fff; margin-bottom:2.5rem; }
+.page-intro { font-size:15px; color:var(--muted); line-height:1.85; margin-bottom:1rem; max-width:58ch; }
+.page-intro+.page-intro { margin-bottom:3.5rem; }
+.divider { height:1px; background:linear-gradient(90deg,var(--ocean),transparent); margin:3rem 0; }
+.sec-label { font-family:'Barlow Condensed',sans-serif; font-size:10px; letter-spacing:0.3em; color:var(--teal); text-transform:uppercase; margin-bottom:1.8rem; display:flex; align-items:center; gap:1rem; }
+.sec-label::after { content:''; flex:1; height:1px; background:linear-gradient(90deg,var(--ocean),transparent); }
+.how-body { font-size:15px; color:var(--sand); line-height:1.85; max-width:58ch; margin-bottom:1rem; }
+.how-highlight { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(17px,2vw,22px); color:var(--seafoam); line-height:1.65; padding-left:1.2rem; border-left:2px solid var(--teal); margin:2rem 0; }
+.tiers { display:flex; flex-direction:column; gap:1px; }
+.tier { padding:2rem 0; border-bottom:1px solid rgba(6,90,130,0.2); }
+.tier:first-child { border-top:1px solid rgba(6,90,130,0.2); }
+.tier-label { font-family:'Barlow Condensed',sans-serif; font-size:9px; letter-spacing:0.28em; color:var(--muted); text-transform:uppercase; margin-bottom:0.5rem; }
+.tier-name { font-family:'Cormorant Garamond',serif; font-weight:400; font-size:clamp(22px,3vw,32px); color:#fff; margin-bottom:0.4rem; line-height:1.1; }
+.tier-tagline { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:15px; color:var(--muted); margin-bottom:1.2rem; }
+.tier-items { list-style:none; display:flex; flex-direction:column; gap:0.45rem; margin-bottom:1.4rem; }
+.tier-items li { font-size:13px; color:var(--sand); padding-left:1rem; position:relative; line-height:1.6; }
+.tier-items li::before { content:'·'; position:absolute; left:0; color:var(--teal); }
+.tier-price { font-family:'Barlow Condensed',sans-serif; font-size:11px; letter-spacing:0.15em; color:var(--warm); text-transform:uppercase; }
+.note { font-size:14px; color:var(--muted); line-height:1.85; max-width:56ch; font-style:italic; }
+.contact-block { display:flex; flex-direction:column; gap:0.8rem; margin-bottom:2.5rem; }
+.contact-line { display:flex; flex-direction:column; gap:0.15rem; }
+.contact-label { font-family:'Barlow Condensed',sans-serif; font-size:9px; letter-spacing:0.25em; color:var(--teal); text-transform:uppercase; }
+.contact-value { font-size:14px; color:var(--sand); }
+.contact-value a { color:var(--sand); text-decoration:none; transition:color 0.2s; }
+.contact-value a:hover { color:var(--seafoam); }
+.cta-note { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(17px,2vw,22px); color:var(--sand); line-height:1.65; margin-bottom:2rem; max-width:48ch; }
+footer { margin-top:4rem; padding-top:1.5rem; border-top:1px solid rgba(6,90,130,0.2); display:flex; flex-wrap:wrap; justify-content:space-between; gap:0.5rem; }
+.footer-brand { font-family:'Barlow Condensed',sans-serif; font-size:11px; letter-spacing:0.18em; color:var(--muted); text-transform:uppercase; }
+.footer-brand strong { color:var(--seafoam); font-weight:400; }
+.footer-copy { font-size:11px; color:rgba(138,165,176,0.4); letter-spacing:0.05em; }
+</style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+
+<nav>
+  <a class="nav-logo" href="index.html">MMM</a>
+  <div class="nav-right">
+    <a class="nav-back" href="index.html" data-key="nav-back">← Back</a>
+    <button id="lang-btn" onclick="toggleLang()">JP</button>
+  </div>
+</nav>
+
+<main class="page">
+
+  <p class="page-eyebrow" data-key="eyebrow">Partner Program</p>
+  <h1 class="page-title">MMM —<br>Movie: Medium<br>of Moments</h1>
+
+  <p class="page-intro" data-key="intro1">mmm is a documentary film series that captures fleeting moments of travel, encounter, and light. Each episode is shot on location — roads, coastlines, mountains, cities — with no script, no agenda. Only what's there.</p>
+  <p class="page-intro" data-key="intro2">We're looking for brands that share this sensibility. Not advertisers. Partners.</p>
+
+  <div class="divider"></div>
+
+  <p class="sec-label" data-key="how-label">How it works</p>
+  <p class="how-body" data-key="how-body">Your brand doesn't appear in mmm as a logo on a banner. It appears the way RG Blue lighting appeared in Episode 1 — as part of the world. Naturally. Beautifully. Memorably.</p>
+  <blockquote class="how-highlight" data-key="how-highlight">This is the only kind of integration we do.</blockquote>
+
+  <div class="divider"></div>
+
+  <p class="sec-label" data-key="tiers-label">Partnership Tiers</p>
+
+  <div class="tiers">
+
+    <div class="tier">
+      <p class="tier-label">Tier 01</p>
+      <h2 class="tier-name" data-key="t1-name">Travel Partner</h2>
+      <p class="tier-tagline" data-key="t1-tag">Your brand travels with us in the credits.</p>
+      <ul class="tier-items">
+        <li data-key="t1-1">Logo in end credits of all episodes</li>
+        <li data-key="t1-2">Brand mention on mmm website and social channels</li>
+        <li data-key="t1-3">Access to exclusive behind-the-scenes content</li>
+      </ul>
+      <p class="tier-price" data-key="t1-price">From ¥100,000 per season</p>
+    </div>
+
+    <div class="tier">
+      <p class="tier-label">Tier 02</p>
+      <h2 class="tier-name" data-key="t2-name">Journey Partner</h2>
+      <p class="tier-tagline" data-key="t2-tag">Your brand becomes part of the journey.</p>
+      <ul class="tier-items">
+        <li data-key="t2-1">Everything in Travel Partner, plus:</li>
+        <li data-key="t2-2">"In partnership with" credit at episode open</li>
+        <li data-key="t2-3">Natural product integration within the film</li>
+        <li data-key="t2-4">Invitation to screenings and preview events</li>
+      </ul>
+      <p class="tier-price" data-key="t2-price">From ¥500,000 per season</p>
+    </div>
+
+    <div class="tier">
+      <p class="tier-label">Tier 03</p>
+      <h2 class="tier-name" data-key="t3-name">Founding Partner</h2>
+      <p class="tier-tagline" data-key="t3-tag">Your brand helps shape the story.</p>
+      <ul class="tier-items">
+        <li data-key="t3-1">Everything in Journey Partner, plus:</li>
+        <li data-key="t3-2">Co-produced short film or behind-the-scenes content featuring your brand</li>
+        <li data-key="t3-3">Exclusive on-location access during production</li>
+        <li data-key="t3-4">Private screening for your team or clients</li>
+      </ul>
+      <p class="tier-price" data-key="t3-price">From ¥1,000,000 per season</p>
+    </div>
+
+  </div>
+
+  <div class="divider"></div>
+
+  <p class="sec-label" data-key="note-label">A note on integration</p>
+  <p class="note" data-key="note-body">We don't do forced placements. If your product belongs in the world of mmm — a car on an empty road, a jacket in mountain wind, a light in a dark room — it will appear because it fits, not because it's paid for. That's what makes it work.</p>
+
+  <div class="divider"></div>
+
+  <p class="sec-label">Contact</p>
+  <p class="cta-note" data-key="cta-note">If this resonates, let's talk.<br>A 30-minute conversation is enough to know if we're aligned.</p>
+
+  <div class="contact-block">
+    <div class="contact-line">
+      <span class="contact-label">Email</span>
+      <span class="contact-value"><a href="mailto:info@fulvis.com">info[at]fulvis.com</a></span>
+    </div>
+    <div class="contact-line">
+      <span class="contact-label">Director</span>
+      <span class="contact-value">Daisuke Abe</span>
+    </div>
+  </div>
+
+  <footer>
+    <p class="footer-brand"><strong>MMM</strong>&ensp;·&ensp;Movie: Medium of Moments&ensp;·&ensp;FULVIS K.K.</p>
+    <p class="footer-copy">© FULVIS K.K.</p>
+  </footer>
+
+</main>
+
+<script>
+const T = {
+  en: {
+    'nav-back': '← Back',
+    'eyebrow': 'Partner Program',
+    'intro1': 'mmm is a documentary film series that captures fleeting moments of travel, encounter, and light. Each episode is shot on location — roads, coastlines, mountains, cities — with no script, no agenda. Only what\'s there.',
+    'intro2': 'We\'re looking for brands that share this sensibility. Not advertisers. Partners.',
+    'how-label': 'How it works',
+    'how-body': 'Your brand doesn\'t appear in mmm as a logo on a banner. It appears the way RG Blue lighting appeared in Episode 1 — as part of the world. Naturally. Beautifully. Memorably.',
+    'how-highlight': 'This is the only kind of integration we do.',
+    'tiers-label': 'Partnership Tiers',
+    't1-name': 'Travel Partner',
+    't1-tag': 'Your brand travels with us in the credits.',
+    't1-1': 'Logo in end credits of all episodes',
+    't1-2': 'Brand mention on mmm website and social channels',
+    't1-3': 'Access to exclusive behind-the-scenes content',
+    't1-price': 'From ¥100,000 per season',
+    't2-name': 'Journey Partner',
+    't2-tag': 'Your brand becomes part of the journey.',
+    't2-1': 'Everything in Travel Partner, plus:',
+    't2-2': '"In partnership with" credit at episode open',
+    't2-3': 'Natural product integration within the film',
+    't2-4': 'Invitation to screenings and preview events',
+    't2-price': 'From ¥500,000 per season',
+    't3-name': 'Founding Partner',
+    't3-tag': 'Your brand helps shape the story.',
+    't3-1': 'Everything in Journey Partner, plus:',
+    't3-2': 'Co-produced short film or behind-the-scenes content featuring your brand',
+    't3-3': 'Exclusive on-location access during production',
+    't3-4': 'Private screening for your team or clients',
+    't3-price': 'From ¥1,000,000 per season',
+    'note-label': 'A note on integration',
+    'note-body': 'We don\'t do forced placements. If your product belongs in the world of mmm — a car on an empty road, a jacket in mountain wind, a light in a dark room — it will appear because it fits, not because it\'s paid for. That\'s what makes it work.',
+    'cta-note': 'If this resonates, let\'s talk.<br>A 30-minute conversation is enough to know if we\'re aligned.',
+  },
+  ja: {
+    'nav-back': '← 戻る',
+    'eyebrow': 'パートナープログラム',
+    'intro1': 'mmmは、旅・出会い・光の刹那を捉えるドキュメンタリー映画シリーズです。各エピソードはロケ地で撮影されます――道路、海岸線、山、都市――脚本なし、アジェンダなし。そこにあるものだけを。',
+    'intro2': 'この感性を共有するブランドを探しています。広告主ではなく、パートナーを。',
+    'how-label': 'How it works',
+    'how-body': 'あなたのブランドは、mmmにロゴ入りバナーとして登場しません。エピソード1にRGブルーの照明が登場したように――世界の一部として。自然に。美しく。記憶に残るように。',
+    'how-highlight': 'これが、私たちが行う唯一のインテグレーションです。',
+    'tiers-label': 'Partnership Tiers',
+    't1-name': 'Travel Partner',
+    't1-tag': 'あなたのブランドが、クレジットとともに旅をする。',
+    't1-1': '全エピソードのエンドクレジットにロゴ掲載',
+    't1-2': 'mmmウェブサイト・SNSでのブランド紹介',
+    't1-3': '限定メイキングコンテンツへのアクセス',
+    't1-price': '¥100,000〜 / シーズン',
+    't2-name': 'Journey Partner',
+    't2-tag': 'あなたのブランドが、旅の一部になる。',
+    't2-1': 'Travel Partnerのすべて、さらに：',
+    't2-2': 'エピソード冒頭での「In partnership with」クレジット',
+    't2-3': 'フィルム内での自然なプロダクトインテグレーション',
+    't2-4': '試写会・プレビューイベントへの招待',
+    't2-price': '¥500,000〜 / シーズン',
+    't3-name': 'Founding Partner',
+    't3-tag': 'あなたのブランドが、物語を形作る。',
+    't3-1': 'Journey Partnerのすべて、さらに：',
+    't3-2': 'ブランドを主役にした共同制作ショートフィルムまたはメイキングコンテンツ',
+    't3-3': '撮影中のロケ地への独占アクセス',
+    't3-4': 'チームまたはクライアント向けのプライベート試写会',
+    't3-price': '¥1,000,000〜 / シーズン',
+    'note-label': 'インテグレーションについて',
+    'note-body': '無理な露出はしません。あなたのプロダクトがmmmの世界に属するなら――空の道を走る車、山風のなかのジャケット、暗い部屋の光――それは「合うから」登場します。「お金を払ったから」ではなく。それが効果をもたらす理由です。',
+    'cta-note': 'もし共鳴するものを感じたら、話しましょう。<br>30分の会話があれば、方向性が合うかどうかわかります。',
+  }
+};
+
+let currentLang = 'en';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.getElementById('lang-btn').textContent = lang === 'en' ? 'JP' : 'EN';
+  document.querySelectorAll('[data-key]').forEach(el => {
+    const key = el.getAttribute('data-key');
+    if (T[lang][key] !== undefined) el.innerHTML = T[lang][key];
+  });
+}
+
+function toggleLang() {
+  setLang(currentLang === 'en' ? 'ja' : 'en');
+}
+</script>
+
+</body>
+</html>
