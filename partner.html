@@ -23,15 +23,15 @@ nav { position:fixed; top:3px; left:0; right:0; padding:0.9rem 6vw; display:flex
 .nav-back:hover { color:var(--seafoam); }
 #lang-btn { font-family:'Barlow Condensed',sans-serif; font-size:10px; letter-spacing:0.18em; color:var(--muted); background:none; border:1px solid rgba(138,165,176,0.25); padding:0.28rem 0.65rem; cursor:pointer; text-transform:uppercase; transition:color 0.2s,border-color 0.2s; line-height:1; }
 #lang-btn:hover { color:var(--seafoam); border-color:rgba(94,234,212,0.4); }
-.page { max-width:740px; margin:0 auto; padding:7rem 6vw 6rem; }
+.page { max-width:740px; margin:0 auto; padding:7rem 4vw 6rem; }
 .page-eyebrow { font-family:'Barlow Condensed',sans-serif; font-size:10px; letter-spacing:0.28em; color:var(--teal); text-transform:uppercase; margin-bottom:1.4rem; }
 .page-title { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:clamp(36px,6vw,72px); line-height:1.0; color:#fff; margin-bottom:2.5rem; }
-.page-intro { font-size:15px; color:var(--muted); line-height:1.85; margin-bottom:1rem; max-width:58ch; }
+.page-intro { font-size:15px; color:var(--muted); line-height:1.85; margin-bottom:1rem;  }
 .page-intro+.page-intro { margin-bottom:3.5rem; }
 .divider { height:1px; background:linear-gradient(90deg,var(--ocean),transparent); margin:3rem 0; }
 .sec-label { font-family:'Barlow Condensed',sans-serif; font-size:10px; letter-spacing:0.3em; color:var(--teal); text-transform:uppercase; margin-bottom:1.8rem; display:flex; align-items:center; gap:1rem; }
 .sec-label::after { content:''; flex:1; height:1px; background:linear-gradient(90deg,var(--ocean),transparent); }
-.how-body { font-size:15px; color:var(--sand); line-height:1.85; max-width:58ch; margin-bottom:1rem; }
+.how-body { font-size:15px; color:var(--sand); line-height:1.85;  margin-bottom:1rem; }
 .how-highlight { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(17px,2vw,22px); color:var(--seafoam); line-height:1.65; padding-left:1.2rem; border-left:2px solid var(--teal); margin:2rem 0; }
 .tiers { display:flex; flex-direction:column; gap:1px; }
 .tier { padding:2rem 0; border-bottom:1px solid rgba(6,90,130,0.2); }
@@ -43,14 +43,14 @@ nav { position:fixed; top:3px; left:0; right:0; padding:0.9rem 6vw; display:flex
 .tier-items li { font-size:13px; color:var(--sand); padding-left:1rem; position:relative; line-height:1.6; }
 .tier-items li::before { content:'·'; position:absolute; left:0; color:var(--teal); }
 .tier-price { font-family:'Barlow Condensed',sans-serif; font-size:11px; letter-spacing:0.15em; color:var(--warm); text-transform:uppercase; }
-.note { font-size:14px; color:var(--muted); line-height:1.85; max-width:56ch; font-style:italic; }
+.note { font-size:14px; color:var(--muted); line-height:1.85;  font-style:italic; }
 .contact-block { display:flex; flex-direction:column; gap:0.8rem; margin-bottom:2.5rem; }
 .contact-line { display:flex; flex-direction:column; gap:0.15rem; }
 .contact-label { font-family:'Barlow Condensed',sans-serif; font-size:9px; letter-spacing:0.25em; color:var(--teal); text-transform:uppercase; }
 .contact-value { font-size:14px; color:var(--sand); }
 .contact-value a { color:var(--sand); text-decoration:none; transition:color 0.2s; }
 .contact-value a:hover { color:var(--seafoam); }
-.cta-note { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(17px,2vw,22px); color:var(--sand); line-height:1.65; margin-bottom:2rem; max-width:48ch; }
+.cta-note { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(17px,2vw,22px); color:var(--sand); line-height:1.65; margin-bottom:2rem;  }
 footer { margin-top:4rem; padding-top:1.5rem; border-top:1px solid rgba(6,90,130,0.2); display:flex; flex-wrap:wrap; justify-content:space-between; gap:0.5rem; }
 .footer-brand { font-family:'Barlow Condensed',sans-serif; font-size:11px; letter-spacing:0.18em; color:var(--muted); text-transform:uppercase; }
 .footer-brand strong { color:var(--seafoam); font-weight:400; }
@@ -77,13 +77,9 @@ footer { margin-top:4rem; padding-top:1.5rem; border-top:1px solid rgba(6,90,130
   <p class="page-intro" data-key="intro1">mmm is a documentary film series that captures fleeting moments of travel, encounter, and light. Each episode is shot on location — roads, coastlines, mountains, cities — with no script, no agenda. Only what's there.</p>
   <p class="page-intro" data-key="intro2">We're looking for brands that share this sensibility. Not advertisers. Partners.</p>
 
-  <div class="divider"></div>
-
   <p class="sec-label" data-key="how-label">How it works</p>
   <p class="how-body" data-key="how-body">Your brand doesn't appear in mmm as a logo on a banner. It appears the way RG Blue lighting appeared in Episode 1 — as part of the world. Naturally. Beautifully. Memorably.</p>
   <blockquote class="how-highlight" data-key="how-highlight">This is the only kind of integration we do.</blockquote>
-
-  <div class="divider"></div>
 
   <p class="sec-label" data-key="tiers-label">Partnership Tiers</p>
 
@@ -129,12 +125,8 @@ footer { margin-top:4rem; padding-top:1.5rem; border-top:1px solid rgba(6,90,130
 
   </div>
 
-  <div class="divider"></div>
-
   <p class="sec-label" data-key="note-label">A note on integration</p>
   <p class="note" data-key="note-body">We don't do forced placements. If your product belongs in the world of mmm — a car on an empty road, a jacket in mountain wind, a light in a dark room — it will appear because it fits, not because it's paid for. That's what makes it work.</p>
-
-  <div class="divider"></div>
 
   <p class="sec-label">Contact</p>
   <p class="cta-note" data-key="cta-note">If this resonates, let's talk.<br>A 30-minute conversation is enough to know if we're aligned.</p>
@@ -162,68 +154,67 @@ const T = {
   en: {
     'nav-back': '← Back',
     'eyebrow': 'Partner Program',
-    'intro1': 'mmm is a documentary film series that captures fleeting moments of travel, encounter, and light. Each episode is shot on location — roads, coastlines, mountains, cities — with no script, no agenda. Only what\'s there.',
-    'intro2': 'We\'re looking for brands that share this sensibility. Not advertisers. Partners.',
+    'intro1': 'Everything begins on location — alleys, coastlines, mountains. In a journey without a script, I capture only the "Setuna" (瞬間): ephemeral moments that exist in a single heartbeat, and nowhere else.',
+    'intro2': 'I am looking for brands that share this sensibility. Not advertisers. Fellow travelers.',
     'how-label': 'How it works',
-    'how-body': 'Your brand doesn\'t appear in mmm as a logo on a banner. It appears the way RG Blue lighting appeared in Episode 1 — as part of the world. Naturally. Beautifully. Memorably.',
-    'how-highlight': 'This is the only kind of integration we do.',
+    'how-body': 'I do not seek to place a logo as a sign. I believe in the inevitability of a brand\'s story dissolving naturally into the cinematic landscape — present because it belongs, not because it was placed.',
+    'how-highlight': 'It must belong there. That is the only kind of integration I do.',
     'tiers-label': 'Partnership Tiers',
     't1-name': 'Travel Partner',
-    't1-tag': 'Your brand travels with us in the credits.',
+    't1-tag': 'Your brand walks the path alongside the credits.',
     't1-1': 'Logo in end credits of all episodes',
-    't1-2': 'Brand mention on mmm website and social channels',
+    't1-2': 'Brand presence on mmm website and social channels',
     't1-3': 'Access to exclusive behind-the-scenes content',
     't1-price': 'From ¥100,000 per season',
     't2-name': 'Journey Partner',
-    't2-tag': 'Your brand becomes part of the journey.',
+    't2-tag': 'Your brand becomes an inseparable part of the journey itself.',
     't2-1': 'Everything in Travel Partner, plus:',
     't2-2': '"In partnership with" credit at episode open',
-    't2-3': 'Natural product integration within the film',
+    't2-3': 'Natural dissolution of your brand into the world of the film',
     't2-4': 'Invitation to screenings and preview events',
     't2-price': 'From ¥500,000 per season',
     't3-name': 'Founding Partner',
-    't3-tag': 'Your brand helps shape the story.',
+    't3-tag': 'Your brand becomes the very origin of our creation.',
     't3-1': 'Everything in Journey Partner, plus:',
-    't3-2': 'Co-produced short film or behind-the-scenes content featuring your brand',
-    't3-3': 'Exclusive on-location access during production',
+    't3-2': 'Co-created short film or behind-the-scenes work centered on your brand\'s world',
+    't3-3': 'Exclusive on-location presence during production',
     't3-4': 'Private screening for your team or clients',
     't3-price': 'From ¥1,000,000 per season',
     'note-label': 'A note on integration',
-    'note-body': 'We don\'t do forced placements. If your product belongs in the world of mmm — a car on an empty road, a jacket in mountain wind, a light in a dark room — it will appear because it fits, not because it\'s paid for. That\'s what makes it work.',
-    'cta-note': 'If this resonates, let\'s talk.<br>A 30-minute conversation is enough to know if we\'re aligned.',
-  },
-  ja: {
+    'note-body': 'I do not do forced placements. If your brand belongs in the world of mmm — a car on an empty road, a jacket in mountain wind, a light held in a dark room — it will appear because of inevitability, not transaction. That is what allows it to reach the viewer.',
+    'cta-note': "If this resonates with you, let's talk.<br>A 30-minute conversation is enough<br>to know if our paths are aligned.",
+  }, ja: {
     'nav-back': '← 戻る',
-    'eyebrow': 'パートナープログラム',
-    'intro1': 'mmmは、旅・出会い・光の刹那を捉えるドキュメンタリー映画シリーズです。各エピソードはロケ地で撮影されます――道路、海岸線、山、都市――脚本なし、アジェンダなし。そこにあるものだけを。',
-    'intro2': 'この感性を共有するブランドを探しています。広告主ではなく、パートナーを。',
+    'eyebrow': 'Partner Program',
+    'intro1': 'すべては現場（ロケーション）から始まります。路地、海、山。台本のない旅路で、ただその瞬間にしか存在しない「刹那」だけをフィルムに焼き付けます。',
+    'intro2': 'この感性を共有できるブランドと、旅を共にしたいと考えています。広告主としてではなく、同じ眼差しを持つ仲間として。',
     'how-label': 'How it works',
-    'how-body': 'あなたのブランドは、mmmにロゴ入りバナーとして登場しません。エピソード1にRGブルーの照明が登場したように――世界の一部として。自然に。美しく。記憶に残るように。',
-    'how-highlight': 'これが、私たちが行う唯一のインテグレーションです。',
+    'how-body': 'ロゴを記号として配置するような関わり方は望んでいません。ブランドの物語が、映画の風景の中に溶け込んでいること。そこに「あるべくしてある」必然性を大切にします。',
+    'how-highlight': 'そこに属しているべきだから、そこにある。これが、私たちの唯一の向き合い方です。',
     'tiers-label': 'Partnership Tiers',
     't1-name': 'Travel Partner',
-    't1-tag': 'あなたのブランドが、クレジットとともに旅をする。',
-    't1-1': '全エピソードのエンドクレジットにロゴ掲載',
+    't1-tag': 'あなたのブランドが、クレジットとともに旅路を歩む。',
+    't1-1': '全エピソードのエンドクレジットにロゴを刻む',
     't1-2': 'mmmウェブサイト・SNSでのブランド紹介',
-    't1-3': '限定メイキングコンテンツへのアクセス',
+    't1-3': '撮影の舞台裏を記録した限定コンテンツの共有',
     't1-price': '¥100,000〜 / シーズン',
     't2-name': 'Journey Partner',
-    't2-tag': 'あなたのブランドが、旅の一部になる。',
-    't2-1': 'Travel Partnerのすべて、さらに：',
-    't2-2': 'エピソード冒頭での「In partnership with」クレジット',
-    't2-3': 'フィルム内での自然なプロダクトインテグレーション',
-    't2-4': '試写会・プレビューイベントへの招待',
+    't2-tag': 'あなたのブランドが、旅そのものの一部になる。',
+    't2-1': 'Travel Partnerのすべて、加えて：',
+    't2-2': 'エピソード冒頭でのパートナークレジット',
+    't2-3': 'ブランドの物語が、フィルムの風景の中に自然に溶け込む',
+    't2-4': '試写・プレビューイベントへのご招待',
     't2-price': '¥500,000〜 / シーズン',
     't3-name': 'Founding Partner',
-    't3-tag': 'あなたのブランドが、物語を形作る。',
-    't3-1': 'Journey Partnerのすべて、さらに：',
-    't3-2': 'ブランドを主役にした共同制作ショートフィルムまたはメイキングコンテンツ',
-    't3-3': '撮影中のロケ地への独占アクセス',
-    't3-4': 'チームまたはクライアント向けのプライベート試写会',
+    't3-tag': 'あなたのブランドが、創造の起点となる。',
+    't3-1': 'Journey Partnerのすべて、加えて：',
+    't3-2': 'ブランドの世界観を軸にした共同制作ショートフィルムまたはメイキング作品',
+    't3-3': '制作現場への独占同行',
+    't3-4': 'チーム・クライアント向けのプライベート試写',
     't3-price': '¥1,000,000〜 / シーズン',
     'note-label': 'インテグレーションについて',
-    'note-body': '無理な露出はしません。あなたのプロダクトがmmmの世界に属するなら――空の道を走る車、山風のなかのジャケット、暗い部屋の光――それは「合うから」登場します。「お金を払ったから」ではなく。それが効果をもたらす理由です。',
-    'cta-note': 'もし共鳴するものを感じたら、話しましょう。<br>30分の会話があれば、方向性が合うかどうかわかります。',
+    'note-body': '強引な露出は、しません。あなたのブランドがmmmの世界に自然に属するなら――空の道を走る一台の車、山風にたなびくジャケット、闇に灯る光――それは必然性によって映り込みます。費用を払ったからではなく。その必然性こそが、観る人の記憶に届く理由です。',
+    'cta-note': 'もし、この価値観に共鳴いただけるなら。<br>まずは30分ほど、言葉を交わしてみませんか。<br>進むべき方向が同じかどうか、それだけで十分です。',
   }
 };
 
