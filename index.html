@@ -587,7 +587,11 @@ footer {
       <li><a class="nav-link" href="#s-director" id="nl-director">Daisuke Abe</a></li>
       <li><a class="nav-link" href="#s-join" id="nl-join">Join Us</a></li>
     </ul>
-    <button id="lang-btn" onclick="toggleLang()" style="font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:0.18em;color:var(--muted);background:none;border:1px solid rgba(138,165,176,0.25);padding:0.28rem 0.65rem;cursor:pointer;text-transform:uppercase;transition:color 0.2s,border-color 0.2s;line-height:1" onmouseover="this.style.color='#5EEAD4';this.style.borderColor='rgba(94,234,212,0.4)'" onmouseout="this.style.color='var(--muted)';this.style.borderColor='rgba(138,165,176,0.25)'">JP</button>
+    <div style="display:flex;align-items:center;font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;border:1px solid rgba(138,165,176,0.25);overflow:hidden">
+      <button id="lang-en" onclick="setLang('en')" style="padding:0.28rem 0.6rem;background:none;border:none;cursor:pointer;color:var(--muted);transition:background 0.2s,color 0.2s">EN</button>
+      <span style="color:rgba(138,165,176,0.25);font-size:9px">|</span>
+      <button id="lang-jp" onclick="setLang('ja')" style="padding:0.28rem 0.6rem;background:none;border:none;cursor:pointer;color:var(--muted);transition:background 0.2s,color 0.2s">JP</button>
+    </div>
   </div>
 </nav>
 
@@ -1099,7 +1103,14 @@ const T={en:{
 let currentLang = 'en';
 function setLang(lang) {
   currentLang = lang;
-  document.getElementById('lang-btn').textContent = lang === 'en' ? 'JP' : 'EN';
+  const enEl = document.getElementById('lang-en');
+  const jpEl = document.getElementById('lang-jp');
+  if (enEl && jpEl) {
+    enEl.style.background = lang === 'en' ? 'rgba(94,234,212,0.15)' : 'none';
+    enEl.style.color       = lang === 'en' ? '#5EEAD4' : 'var(--muted)';
+    jpEl.style.background  = lang === 'ja' ? 'rgba(94,234,212,0.15)' : 'none';
+    jpEl.style.color       = lang === 'ja' ? '#5EEAD4' : 'var(--muted)';
+  }
   // navリンクのラベル更新（data-keyと衝突しないようid指定）
   Object.keys(TRANSLATIONS).forEach(id => {
     const el = document.getElementById(id);
@@ -1128,7 +1139,6 @@ function closeShowreel() {
 }
 document.addEventListener('keydown', e => { if(e.key === 'Escape') closeShowreel(); });
 
-function toggleLang() { setLang(currentLang === 'en' ? 'ja' : 'en'); }
 </script>
 
 <!-- Showreel Modal -->
