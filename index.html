@@ -606,10 +606,7 @@ footer {
   <div class="v-line" style="z-index:1"></div>
     <h1 class="hero-title">MMM</h1>
   <p class="hero-sub" data-key="hero-sub">Movie&thinsp;:&thinsp;Medium of Moments</p>
-  <p class="hero-tagline" data-key="hero-tagline">
-    Beyond the Recommended.<br>
-    Journeying to encounter the sublime.
-  </p>
+  <p class="hero-tagline" data-key="hero-tagline">A Documentary Film Series</p>
   <div class="ioff-badge" data-key="ioff-badge">
     Official Selection &mdash; International Ocean Film Festival 2026
   </div>
@@ -1064,6 +1061,7 @@ const T={en:{
 },ja:{
 'hero-eyebrow':'IOFF 2026 · サンフランシスコ · 公式選出',
 'hero-sub':'Movie : Medium of Moments',
+    'hero-tagline':'旅する、短編ドキュメンタリーシリーズ。',
 'concept-h1':'"レコメンドの圏外へ。<br><em>美しいものに会いにいく。"</em>',
 'c1-head':'アルゴリズムを超えて','c1-body':'アルゴリズムが提示する「最適解」から逸脱し、自らの感覚で「本物」と出会うためのロードムービー・シリーズ。スマートフォンの画面の外に、まだ誰にも発見されていない美しさが存在する。',
 'c2-head':'刹那（せつな）','c2-body':'「この世のすべては絶えず変化し続ける」という仏教思想（諸行無常）を象徴する言葉。今この瞬間にも、身体の細胞は生まれ変わり、一瞬前の自分とはすでに別の存在になっている。すべての瞬間は奇跡なのかもしれない。',
@@ -1139,6 +1137,14 @@ function closeShowreel() {
 }
 document.addEventListener('keydown', e => { if(e.key === 'Escape') closeShowreel(); });
 
+
+function toggleLang() { setLang(currentLang === 'en' ? 'ja' : 'en'); }
+
+// Auto language detection
+(function() {
+  var nav = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+  setLang(nav.startsWith('ja') ? 'ja' : 'en');
+})();
 </script>
 
 <!-- Showreel Modal -->
