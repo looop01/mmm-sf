@@ -6,7 +6,7 @@
 <title>MMM — Movie: Medium of Moments</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500&family=Barlow+Condensed:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow:wght@300;400;500&family=Barlow+Condensed:wght@200;300;400;500&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -136,7 +136,7 @@ nav {
 }
 
 .hero-tagline {
-  font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-family: 'Noto Serif JP', 'Cormorant Garamond', serif; font-style: italic;
   font-size: clamp(17px, 2vw, 22px);
   color: var(--muted); max-width: 44ch; line-height: 1.7; margin-bottom: 2rem;
 }
@@ -161,9 +161,9 @@ nav {
 
 .concept-intro {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(22px, 3vw, 36px); font-weight: 300;
+  font-size: clamp(26px, 3.6vw, 43px); font-weight: 300;
   line-height: 1.45; color: #fff;
-  max-width: 26ch; margin-bottom: 3rem;
+  max-width: 26ch; margin-bottom: 2rem;
 }
 
 .concept-intro em { color: var(--seafoam); font-style: normal; }
@@ -606,22 +606,28 @@ footer {
   <div class="v-line" style="z-index:1"></div>
     <h1 class="hero-title">MMM</h1>
   <p class="hero-sub" data-key="hero-sub">Movie&thinsp;:&thinsp;Medium of Moments</p>
-  <p class="hero-tagline" data-key="hero-tagline">A Documentary Film Series</p>
+  <p class="hero-tagline" data-key="hero-tagline">A short film series. On the road.</p>
   <div class="ioff-badge" data-key="ioff-badge">
     Official Selection &mdash; International Ocean Film Festival 2026
   </div>
 </section>
 <div class="sec-divider"></div>
+
+<div id="s-hook" class="sec-anchor" style="position:relative;z-index:1;padding:2.5rem 6vw;text-align:center;border-bottom:1px solid rgba(6,90,130,0.15)">
+</div>
+
 <!-- ══ S2: CONCEPT ══ -->
 <section id="s-concept" class="sec-anchor">
   <div style="position:relative;z-index:1;padding:3.5rem 6vw">
     <p class="sec-label" data-key="concept-sec-label">The Concept</p>
 
     <p class="concept-intro" data-key="concept-h1">
-      "Beyond the Recommended.<br>
-      <em>Journeying to encounter<br>the sublime."</em>
+      Beyond the Recommended.<br>
+      <em>Journeying to encounter<br>the sublime.</em>
     </p>
 
+
+    <p style="font-family:'Noto Serif JP','Cormorant Garamond',serif;font-style:italic;font-size:clamp(17px,2vw,24px);color:var(--muted);margin-bottom:3rem;line-height:1.6" data-key="road-movie-tag">本物に出会うためのロードムービー</p>
     <div class="concept-grid">
       <div class="concept-card">
         <p class="concept-num">01</p>
@@ -1031,8 +1037,8 @@ const TRANSLATIONS = {
 };
 const T={en:{
 'hero-eyebrow':'IOFF 2026 · San Francisco · Official Selection',
-'hero-sub':'Movie : Medium of Moments',
-'concept-h1':'"Beyond the Recommended.<br><em>Journeying to encounter<br>the sublime."</em>',
+'hero-sub':'Movie : Medium of Moments','hero-tagline':'A short film series. On the road.',
+'road-movie-tag':'A road movie toward something real.','concept-h1':'Beyond the Recommended.<br><em>Journeying to encounter<br>the sublime.</em>',
 'c1-head':'Beyond Algorithms','c1-body':'Not what is recommended. What is real, rare, and unrepeatable. In an era when algorithms decide what we see and who we become, MMM chooses to travel to the edges — to find the human beings whose stories have not yet been optimized away.',
 'c2-head':'Setsuna 刹那','c2-body':'The Buddhist concept of impermanence — the belief that everything is in constant flux. Even now, our cells are regenerating. Since no moment ever repeats, every single one is a miracle. MMM exists to capture these miraculous fragments of time.',
 'c3-head':'Beauty as Art','c3-body':'Not pretty. Not cute. The moment a person\'s conviction and existence manifests — that is Art. The world is inherently beautiful. Illuminating that beauty inspires the courage and joy to truly live.',
@@ -1074,7 +1080,7 @@ const T={en:{
 'hero-eyebrow':'IOFF 2026 · サンフランシスコ · 公式選出',
 'hero-sub':'Movie : Medium of Moments',
     'hero-tagline':'旅する、短編ドキュメンタリーシリーズ。',
-'concept-h1':'"レコメンドの圏外へ。<br><em>美しいものに会いにいく。"</em>',
+'road-movie-tag':'A road movie toward something real.','concept-h1':'レコメンドの圏外へ。<br><em>美しいものに会いにいく。</em>',
 'c1-head':'アルゴリズムを超えて','c1-body':'アルゴリズムが提示する「最適解」から逸脱し、自らの感覚で「本物」と出会うためのロードムービー・シリーズ。スマートフォンの画面の外に、まだ誰にも発見されていない美しさが存在する。',
 'c2-head':'刹那（せつな）','c2-body':'「この世のすべては絶えず変化し続ける」という仏教思想（諸行無常）を象徴する言葉。今この瞬間にも、身体の細胞は生まれ変わり、一瞬前の自分とはすでに別の存在になっている。すべての瞬間は奇跡なのかもしれない。',
 'c3-head':'アートとしての美','c3-body':'「キレイ」や「カワイイ」といった表面的な価値ではなく、人や物事の信念や存在の本質が立ち現れた状態――すなわち「アート」。世界は本来、もっと美しいものである。その美しさに気づくことが、人が生きる勇気や歓びにつながると信じている。',
