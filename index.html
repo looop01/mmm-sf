@@ -45,10 +45,10 @@ body::before {
 /* ── Hero bg ── */
 
 /* ── NAV ── */
-.top-bar { position: fixed; top:0; left:0; right:0; height:3px; background:transparent; z-index:200; }
+.top-bar { display: none; }
 
 nav {
-  position: fixed; top:3px; left:0; right:0;
+  position: fixed; top:0; left:0; right:0;
   padding: 0.85rem 6vw;
   display: flex; justify-content: space-between; align-items: center;
   z-index: 199;
@@ -144,8 +144,11 @@ nav {
   font-weight: 300;
   color: var(--teal);
   line-height: 1.7;
-  margin-top: 2.5rem;
-  display: block;
+  position: absolute;
+  top: 245px;
+  left: 6vw;
+  z-index: 2;
+  white-space: nowrap;
 }
 
 .ioff-badge {
@@ -659,8 +662,8 @@ footer {
   </g>
 </svg>
     
-    <p class="hero-tagline" data-key="hero-tagline">旅する、短編ドキュメンタリーシリーズ。</p>
   </div>
+  <p class="hero-tagline" data-key="hero-tagline">旅する、短編ドキュメンタリーシリーズ。</p>
 </section>
 <div class="sec-divider"></div>
 
