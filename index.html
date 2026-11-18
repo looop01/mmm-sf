@@ -89,7 +89,7 @@ nav {
 
 .sec-label {
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 10px; letter-spacing: 0.3em; color: var(--teal);
+  font-size: clamp(18px, 1.6vw, 23px); font-weight: 400; letter-spacing: 0.12em; color: var(--seafoam);
   text-transform: uppercase;
   display: flex; align-items: center; gap: 1rem;
   margin-bottom: 1.5rem;
@@ -163,48 +163,45 @@ nav {
 ══════════════════════════════ */
 #s-concept {
   position: relative; z-index: 1;
-  padding: 1.5rem 6vw 3.5rem;
+  --intro-space: 5rem;
+  padding: var(--intro-space) 6vw 3.5rem;
   background: rgba(6,25,42,0.4);
 }
 
 .concept-intro {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(26px, 3.6vw, 43px); font-weight: 300;
+  font-size: clamp(31.2px, 4.32vw, 51.6px); font-weight: 300;
   line-height: 1.45; color: #fff;
-  max-width: 26ch; margin-bottom: 2rem;
+  max-width: none; margin-bottom: var(--intro-space);
+  text-wrap: balance;
+}
+
+@media (min-width: 901px) {
+  .concept-intro { font-size: min(51.6px, 3.4vw); }
 }
 
 .concept-intro em { color: var(--seafoam); font-style: normal; }
 
-.concept-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
-  background: rgba(6,90,130,0.2);
-  border: 1px solid rgba(6,90,130,0.2);
+.films-concept {
+  max-width: 48rem;
+  margin: clamp(3.5rem, 6vw, 6rem) auto 0;
+  padding: 0;
 }
-@media (max-width: 700px) { .concept-grid { grid-template-columns: 1fr; } }
-
-.concept-card {
-  padding: 2rem 1.8rem;
-  background: var(--black);
-  border-left: 2px solid transparent;
-  transition: border-color 0.3s, background 0.3s;
+.concept-note-lead {
+  font-family: 'Noto Serif JP', 'Cormorant Garamond', serif;
+  font-size: clamp(19px, 1.7vw, 25px);
+  font-weight: 300;
+  color: var(--sand);
+  line-height: 1.85;
+  margin-bottom: 1.2rem;
 }
-.concept-card:hover { background: rgba(6,37,58,0.6); border-left-color: var(--teal); }
-
-.concept-num {
-  font-family: 'Cormorant Garamond', serif; font-weight: 300;
-  font-size: 40px; color: rgba(94,234,212,0.2);
-  line-height: 1; margin-bottom: 0.8rem;
+.concept-note-body {
+  font-size: clamp(14px, 1.05vw, 16px);
+  color: var(--muted);
+  line-height: 2;
 }
-
-.concept-head {
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 400;
-  font-size: 13px; letter-spacing: 0.2em; color: var(--seafoam);
-  text-transform: uppercase; margin-bottom: 0.8rem;
-}
-
-.concept-body {
-  font-size: 13px; color: var(--muted); line-height: 1.7;
+@media (max-width: 700px) {
+  #s-concept { --intro-space: 3rem; }
 }
 
 .concept-quote {
@@ -223,7 +220,7 @@ nav {
 /* ══════════════════════════════
    SECTION 3: FILMS
 ══════════════════════════════ */
-#s-films { position: relative; z-index: 1; padding: 3.5rem 6vw; }
+#s-films { position: relative; z-index: 1; }
 
 .films-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
@@ -581,6 +578,15 @@ footer {
   from { opacity:0; transform:translateY(14px); }
   to   { opacity:1; transform:translateY(0); }
 }
+.partner-intro { padding: 4rem 12vw; border-top: 1px solid rgba(94,234,212,.2); background: rgba(6,37,58,.28); }
+.partner-copy { max-width: 48rem; font-size: 15px; line-height: 1.9; color: var(--muted); margin: 1.2rem 0 1.8rem; }
+.concept-note-lead { font-size: clamp(17px, 1.4vw, 21px); line-height: 2; }
+@media (max-width: 700px) { .concept-note-lead br { display: none; } }
+
+/* Match the roadmap content inset to the surrounding sections. */
+#s-roadmap { position: relative; z-index: 1; padding-inline: 6vw; }
+.director-role { font-size: clamp(14px, 1.2vw, 18px); letter-spacing: .12em; color: var(--seafoam); margin-bottom: 1rem; }
+.director-company { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; letter-spacing: .22em; color: var(--teal); text-transform: uppercase; margin: .8rem 0 1.5rem; }
 </style>
 </head>
 <body>
@@ -666,47 +672,11 @@ footer {
 </section>
 <div class="sec-divider"></div>
 
-<!-- ══ S2: CONCEPT ══ -->
+<!-- ══ CONCEPT + FILMS ══ -->
 <section id="s-concept" class="sec-anchor">
-  <div style="position:relative;z-index:1;padding:3.5rem 6vw">
-    <p class="sec-label" data-key="concept-sec-label">The Concept</p>
-
-    <p class="concept-intro" data-key="concept-h1">
-      Beyond the Recommended.<br>
-      <em>Journeying to encounter<br>the sublime.</em>
-    </p>
-
-
-    <p style="font-family:'Noto Serif JP','Cormorant Garamond',serif;font-style:italic;font-size:clamp(17px,2vw,24px);color:var(--muted);margin-bottom:3rem;line-height:1.6" data-key="road-movie-tag">本物に出会うためのロードムービー</p>
-    <div class="concept-grid">
-      <div class="concept-card">
-        <p class="concept-num">01</p>
-        <p class="concept-head" data-key="c1-head">Beyond Algorithms</p>
-        <p class="concept-body" data-key="c1-body">What is real, rare, and unrepeatable. In an era when algorithms decide what we see and who we become, MMM chooses to travel to the edges — to find the human beings whose stories have not yet been optimized away.</p>
-      </div>
-      <div class="concept-card">
-        <p class="concept-num">02</p>
-        <p class="concept-head" data-key="c2-head">Setsuna 刹那</p>
-        <p class="concept-body" data-key="c2-body">The Buddhist concept of impermanence — the belief that everything in this world is in a constant state of flux. Even now, our cells are regenerating; we are not the same people we were a second ago. Since no moment ever repeats, every single one is a miracle. MMM exists to capture these miraculous fragments of time.</p>
-      </div>
-      <div class="concept-card">
-        <p class="concept-num">03</p>
-        <p class="concept-head" data-key="c3-head">Beauty as Art</p>
-        <p class="concept-body" data-key="c3-body">Not pretty. Not cute. The moment a person's conviction and existence manifests — that is Art. MMM captures the beauty shaped by the land, the streets, the culture, and the inner philosophy that defines an individual. The world is inherently beautiful. Illuminating that beauty inspires the courage and joy to truly live.</p>
-      </div>
-    </div>
-</div>
-</section>
-
-<div class="sec-divider"></div>
-
-
-
-<!-- ══ S3: FILMS ══ -->
-<section id="s-films" class="sec-anchor">
-  <div style="position:relative;z-index:1;padding:3.5rem 6vw">
-    <p class="sec-label" data-key="films-sec-label">The Films</p>
-
+  <div style="position:relative;z-index:1;padding:0 6vw 3.5rem">
+    <p class="concept-intro" data-key="concept-h1">Beyond the Recommended. <em>Journeying to encounter the sublime.</em></p>
+    <div id="s-films" class="sec-anchor">
     <div class="films-grid">
 
       <!-- Film 1 -->
@@ -765,17 +735,24 @@ footer {
       </div>
 
     </div>
+
+    <div class="films-concept">
+      <p class="concept-note-lead" data-key="concept-note-lead">Beyond the guidance of algorithms, toward whatever draws our own senses.<br>In unfamiliar places, we encounter ways of living and the beauty that takes root there.<br>We preserve those unrepeatable moments through the medium of film.</p>
+      <p class="concept-note-body" data-key="concept-note-body">MMM is a short documentary series that shifts, just a little, the way we see the world.</p>
+    </div>
+    </div>
   </div>
 </section>
 
+
 <section id="s-director" class="sec-anchor">
   <div style="position:relative;z-index:1;padding:3.5rem 6vw">
-    <p class="sec-label" data-key="dir-sec-label">The Director</p>
 
     <div class="director-intro">
       <div class="director-label-col">
+        <p class="director-role" data-key="dir-role">Director / Cinematographer</p>
         <h2 class="director-name">Daisuke<br>Abe</h2>
-        <p class="director-role" data-key="dir-role">Director · Cinematographer · Editor<br>FULVIS K.K. — Tokyo</p>
+        <p class="director-company">FULVIS K.K. — Tokyo</p>
         <div class="awards">
           <div class="award-item featured">★ IOFF 2026 — Official Selection</div>
           <div class="award-item featured">★ VdR Film Market (Visions du Réel) 2026</div>
@@ -785,7 +762,7 @@ footer {
 
         <!-- Showreel -->
         <div id="showreel-wrap" style="margin-top:1.5rem;position:relative;cursor:pointer;border:1px solid rgba(6,90,130,0.3);overflow:hidden;border-radius:2px" onclick="openShowreel()">
-          <img src="https://img.youtube.com/vi/-ZTkqN1-7m4/maxresdefault.jpg" alt="Showreel — Daisuke Abe" style="width:100%;display:block;opacity:0.75;transition:opacity 0.3s" onmouseover="this.style.opacity='0.95'" onmouseout="this.style.opacity='0.75'">
+          <img src="https://img.youtube.com/vi/K875cAhB83I/maxresdefault.jpg" alt="Showreel — Daisuke Abe" style="width:100%;display:block;opacity:0.75;transition:opacity 0.3s" onmouseover="this.style.opacity='0.95'" onmouseout="this.style.opacity='0.75'">
           <!-- Play button overlay -->
           <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem;pointer-events:none">
             <div style="width:56px;height:56px;border-radius:50%;background:rgba(13,148,136,0.85);border:2px solid rgba(94,234,212,0.6);display:flex;align-items:center;justify-content:center;padding-left:4px">
@@ -813,7 +790,7 @@ footer {
               <rect x="2" y="4" width="20" height="16" rx="4"/>
               <polygon points="10,8.5 16,12 10,15.5" fill="#B8CDD6" stroke="none"/>
             </svg>
-            <span style="font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.18em;color:#B8CDD6;text-transform:uppercase">YouTube</span>
+            <span style="font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.18em;color:#B8CDD6;text-transform:uppercase">Works</span>
           </a>
         </div>
 
@@ -830,14 +807,12 @@ footer {
     <!-- Works -->
     <div style="margin:-0.5rem -6vw 0;padding:2.5rem 6vw 3rem;background:rgba(4,16,28,0.7)">
     <div class="works-intro">
-      <p class="sec-label" style="margin-bottom:0;color:var(--seafoam)">Selected Commercial Works</p>
-      <a href="https://youtube.com/playlist?list=PL0fLz02UK_CQVy3jahzuo7HXerfSFGfWJ" target="_blank" rel="noopener" class="playlist-link" data-key="playlist-link">Watch full playlist ↗</a>
+      <p class="sec-label" style="margin-bottom:0;color:var(--seafoam)" data-key="works-sec-label">Selected Brand Films</p>
     </div>
 
-    <!-- The Same Eye -->
-    <div style="margin-bottom:1.8rem;padding:1.6rem 0 1.8rem;border-bottom:1px solid rgba(6,90,130,0.15)">
-      <h2 style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(26px,4vw,50px);color:#fff;line-height:1.05;margin-bottom:1.1rem" data-key="axis-headline">The Same Eye.<br>Two Worlds.</h2>
-      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(14px,1.6vw,18px);color:var(--muted);max-width:100%;line-height:1.75" data-key="axis-body">One eye. A 400-year-old cedar barrel — and a city's data stream at night.<br>Both asking the same question.</p>
+    <!-- Brand films introduction -->
+    <div style="margin-bottom:1.8rem;padding:0 0 1.8rem;border-bottom:1px solid rgba(6,90,130,0.15)">
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(14px,1.6vw,18px);color:var(--muted);max-width:100%;line-height:1.75" data-key="axis-body">A selection of commissioned films by Daisuke Abe — from traditional craftsmanship to emerging technology.</p>
     </div>
 
     <!-- Tradition / Tech axis bar -->
@@ -910,56 +885,55 @@ footer {
 
     </div>
   </div><!-- /works bg -->
+  </div>
 </section>
 
-<div class="sec-divider"></div>
-
-<!-- ══ S6: JOIN ══ -->
-<div class="sec-divider"></div>
-
-
-
-<!-- ══ S4: MODEL ══ -->
+<section id="s-partners" class="partner-intro sec-anchor">
+  <p class="sec-label" data-key="partner-label">For Partners</p>
+  <h2 class="model-headline" data-key="partner-headline">Help the next story unfold.</h2>
+  <p class="partner-copy" data-key="partner-intro">We welcome sponsors and collaborators who share our curiosity. Here is where we hope to take MMM, and how we can work together.</p>
+  <a class="film-link" href="#s-model" data-key="partner-cta">Explore a Partnership →</a>
+</section>
 
 <section id="s-roadmap" class="sec-anchor">
   <div style="position:relative;z-index:1;padding:3.5rem 6vw">
 <!-- Roadmap -->
-    <p class="sec-label" style="margin-top:2.5rem" data-key="roadmap-sec-label">Roadmap</p>
+    <p class="sec-label" data-key="roadmap-sec-label">Where We’re Going</p>
+    <p class="partner-copy" data-key="roadmap-intro">Our direction for the series: new encounters, more places to watch, and a lasting life for each film.</p>
     <div class="roadmap">
       <div class="roadmap-phase current">
         <div class="phase-num">01</div>
-        <div class="phase-range" data-key="phase1-range">Now — 2 films</div>
-        <div class="phase-head" data-key="phase1-head">Foundations</div>
+        <div class="phase-range" data-key="phase1-range">Now</div>
+        <div class="phase-head" data-key="phase1-head">Keep Exploring</div>
         <ul class="phase-items">
-          <li data-key="phase1-1">Rights & license structure finalized</li>
-          <li data-key="phase1-2">Sponsor framework (RG BLUE model)</li>
-          <li data-key="phase1-3">IOFF San Francisco — investor outreach</li>
+          <li data-key="phase1-1">Build on the first three films</li>
+          <li data-key="phase1-2">Discover new subjects and places</li>
+          <li data-key="phase1-3">Meet partners for future productions</li>
+          <li data-key="phase1-4">Presenting the series at international film festivals</li>
         </ul>
       </div>
       <div class="roadmap-phase">
         <div class="phase-num">02</div>
-        <div class="phase-range" data-key="phase2-range">3–5 films</div>
-        <div class="phase-head" data-key="phase2-head">Series Build</div>
+        <div class="phase-range" data-key="phase2-range">Next</div>
+        <div class="phase-head" data-key="phase2-head">Reach New Audiences</div>
         <ul class="phase-items">
-          <li data-key="phase2-1">Multiple sponsors per production</li>
-          <li data-key="phase2-2">International film festival circuit</li>
-          <li data-key="phase2-3">Theatrical screenings & exhibitions</li>
-          <li data-key="phase2-4">Multi-crew production structure established</li>
+          <li data-key="phase2-1">Develop new films with supporting partners</li>
+          <li data-key="phase2-3">Explore screenings and exhibitions</li>
+          <li data-key="phase2-4">Grow the production team as needed</li>
         </ul>
       </div>
       <div class="roadmap-phase">
         <div class="phase-num">03</div>
-        <div class="phase-range" data-key="phase3-range">10+ films</div>
-        <div class="phase-head" data-key="phase3-head">Platform Play</div>
+        <div class="phase-range" data-key="phase3-range">Looking Ahead</div>
+        <div class="phase-head" data-key="phase3-head">Give the Films a Lasting Life</div>
         <ul class="phase-items">
-          <li data-key="phase3-1">Pitch to streaming platforms as series</li>
-          <li data-key="phase3-2">Agent / distribution deal</li>
-          <li data-key="phase3-3">Education & licensing revenue</li>
-          <li data-key="phase3-4">Recurring stock income</li>
+          <li data-key="phase3-1">Explore distribution as a series</li>
+          <li data-key="phase3-2">Build relationships with distributors</li>
+          <li data-key="phase3-3">Explore educational screenings and licensing</li>
+          <li data-key="phase3-4">Sustain the creation of future films</li>
         </ul>
       </div>
     </div>
-  </div>
   </div>
 </section>
 
@@ -967,10 +941,9 @@ footer {
 
 <section id="s-model" class="sec-anchor">
   <div style="position:relative;z-index:1;padding:3.5rem 6vw">
-    <p class="sec-label" data-key="model-sec-label">The Model</p>
+    <p class="sec-label" data-key="model-sec-label">How We Collaborate</p>
 
-    <h2 class="model-headline">Co-creation,<br>not commission.</h2>
-    <p class="model-sub" data-key="model-sub"><span><span data-key="ret-head">FULVIS retains</span></span> all series, festival and distribution rights. Partners receive cinematic brand storytelling at no production fee.</p>
+    <p class="model-sub" data-key="model-sub">Filmmaker, story partner, and sponsor each bring something different. Together, they make the film possible.</p>
 
     <div class="model-actors">
       <div class="actor-col">
@@ -1037,9 +1010,9 @@ footer {
   <div class="join-grid">
     <div>
       <h2 class="join-headline" style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(30px,4.5vw,56px);color:#fff;line-height:1;margin-bottom:1.2rem">Travel with us.</h2>
-      <p class="join-body" style="font-size:14px;color:var(--muted);line-height:1.85;margin-bottom:2rem;max-width:42ch">mmm is a documentary film series that captures fleeting moments of travel, encounter, and light. We're looking for brands that share this sensibility. Not advertisers. Partners.</p>
+      <p class="join-body" data-key="join-body" style="font-size:14px;color:var(--muted);line-height:1.85;margin-bottom:2rem;max-width:42ch">Interested in supporting a future film, sharing a story, or bringing MMM to an audience? We would love to hear from you.</p>
       <div class="join-btns">
-        <a class="btn-primary" href="partner.html" target="_blank" rel="noopener">Become a Partner &rarr;</a>
+        <a class="btn-primary" href="partner.html" target="_blank" rel="noopener" data-key="partner-cta">Explore a Partnership →</a>
       </div>
     </div>
     <div class="join-contact">
@@ -1068,12 +1041,12 @@ footer {
 
 
 // active nav on scroll
-const sections = ['s-hero','s-concept','s-films','s-director','s-roadmap','s-model','s-join'];
+const sections = ['s-hero','s-concept','s-films','s-director','s-partners','s-roadmap','s-model','s-join'];
 const navLinks  = sections.map(id => document.getElementById('nl-'+id.replace('s-','')));
 // mapping
 const nlMap = {
   's-hero':'nl-mmm','s-concept':'nl-concept','s-films':'nl-films',
-  's-director':'nl-director','s-roadmap':'nl-model','s-model':'nl-model','s-join':'nl-join'
+  's-director':'nl-director','s-partners':'nl-join','s-roadmap':'nl-model','s-model':'nl-model','s-join':'nl-join'
 };
 
 function updateNav(){
@@ -1096,92 +1069,185 @@ const TRANSLATIONS = {
   'nl-director': {en:'Daisuke Abe',ja:'Daisuke Abe'},
   'nl-join':     {en:'Join Us',    ja:'Join Us'},
 };
-const T={en:{
-'hero-eyebrow':'IOFF 2026 · San Francisco · Official Selection',
-'hero-sub':'Movie : Medium of Moments','hero-tagline':'A short film series. On the road.',
-'road-movie-tag':'A road movie toward something real.','concept-h1':'Beyond the Recommended.<br><em>Journeying to encounter<br>the sublime.</em>',
-'c1-head':'Beyond Algorithms','c1-body':'Not what is recommended. What is real, rare, and unrepeatable. In an era when algorithms decide what we see and who we become, MMM chooses to travel to the edges — to find the human beings whose stories have not yet been optimized away.',
-'c2-head':'Setsuna 刹那','c2-body':'Setsuna comes from the Buddhist concept that all things are in constant flux — that nothing holds its form from one moment to the next. Even now, your cells are regenerating; the person you were a moment ago no longer exists. If that is true, every moment is a miracle. MMM exists to burn those miracles into film.',
-'c3-head':'Capturing Beauty','c3-body':'The world is, at its core, more beautiful than we allow ourselves to see. Not pretty, not cute — but the moment a person\'s conviction or the essence of a thing fully emerges. That is beauty. And recognizing it, I believe, is what gives us the courage and joy to live.',
-'axis-headline':'The Same Eye.<br>Two Worlds.','axis-body':'From traditional craftsmanship to cutting-edge technology companies — the role of film is the same: to shape the essence of what is there.','film1-tag':'Documentary · Freediving · Photography',
-'film1-title':'The Story of<br>Ryuzo Shinomiya',
-'film1-desc':'World-class freediver and photographer Ryuzo Shinomiya exists at the intersection of primitive human capability and modern technology. The founding work that established the MMM visual language.',
-'film1-link':'Watch on YouTube ↗',
-'film2-tag':'Documentary · Ocean · Road Movie',
-'film2-title':'The Signals<br>of Color',
-'film2-desc':"Underwater photographer Yasuaki Kagii collects ocean debris and projects his underwater footage onto it — a road movie across Japan's coastlines shot entirely on vintage lenses.",
-'film2-link':'Watch Trailer on YouTube ↗',
-'film3-title':'Douglas Weber\'s Quest',
-'film3-desc':'He left Apple. Studied ceramics in Kyushu. Then chose a different path — building tools meant to last a lifetime. Not technology for its sake. Just what the perfect cup demands. A documentary film, following his quest through Itoshima.',
-'film3-link':'Watch on YouTube ↗',
-'model-headline':'Co-creation,<br>not commission.',
-'model-sub':'FULVIS retains all series, festival and distribution rights. Partners receive cinematic brand storytelling at no production fee.',
-'actor1-head':'FULVIS / Director','actor2-head':'Creative Partner','actor3-head':'Sponsor / Investor',
-'actor1-1':'Concept · Camera · Edit · Color','actor1-2':'Film festival submission','actor1-3':'Series rights held','actor1-4':'Editorial independence',
-'actor2-1':'Subject of the story','actor2-2':'No production fee required','actor2-3':'Unlimited self-use rights','actor2-4':'Brand story co-ownership',
-'actor3-1':'Investment in the journey','actor3-2':'Travel, logistics & high-end cinematography to capture unrepeatable moments','actor3-3':'End-credit placement','actor3-4':'Festival brand exposure',
-'model-note':'FULVIS deepens its artistic voice through its own media. Partners receive cinematic brand storytelling. Sponsors gain authentic cultural presence — and their brand is never compromised.',
-'inc-head':'Included with sponsorship','inc-1':'✓&ensp;End-credit placement on all MMM productions','inc-2':'✓&ensp;Unlimited self-use rights (SNS, Web, events)','inc-3':'✓&ensp;Brand exposure at international film festivals','inc-4':'✓&ensp;Association with the MMM cultural brand',
-'ret-head':'FULVIS retains','ret-1':'→&ensp;Series rights & film festival submissions','ret-2':'→&ensp;Streaming platform licensing','ret-3':'→&ensp;Third-party distribution rights','ret-4':'→&ensp;Editorial independence — always',
-'phase1-range':'Now — 2 films','phase1-head':'Foundations','phase1-1':'Rights & license structure finalized','phase1-2':'Sponsorship & collaboration framework established','phase1-3':'IOFF San Francisco — investor outreach','phase1-4':'',
-'phase2-range':'3–5 films','phase2-head':'Series Build','phase2-1':'Multiple sponsors per production','phase2-2':'International film festival circuit','phase2-3':'Theatrical screenings & exhibitions','phase2-4':'Multi-crew production structure established',
-'phase3-range':'10+ films','phase3-head':'Platform Play','phase3-1':'Pitch to streaming platforms as series','phase3-2':'Agent / distribution deal','phase3-3':'Education & licensing revenue','phase3-4':'Recurring stock income',
-'dir-role':'Director · Cinematographer · Editor<br>FULVIS K.K. — Tokyo',
-'dir-text-1':'A Tokyo-based director and cinematographer working at the intersection of art, fiction, and documentary. To me, filmmaking is not merely an act of recording; it is an act of rebirth. Under my lens, old machinery begins to assert itself with new force, and individuals emerge with a confidence they never knew they carried. I believe images can change how we perceive reality and imagine the future.',
-'dir-text-2':'While studying at Waseda University, I organized experimental events fusing live bands, VJ performance, and DJ sets. Starting as a VJ and guitarist, I developed a personal sensibility for rhythm and light. After graduating, I shifted into filmmaking and founded the creative unit AIRJOB, directing television programs and commercials featuring extreme sports — building the visual foundation that still drives my work today.',
-'dir-text-3':'In 2007, I opened "factory LO," a café-bar that was among the earliest venues in Japan to integrate projection mapping as a core design element. In 2013, I founded FULVIS K.K. — pursuing visual expression across brand storytelling for global clients such as Sony, Toyota, and NEC through to spatial installations.',
-'dir-text-4':'Moving freely between advertising and cinema, I continue to make work that renews how we see the things and people around us.',
-'works-sec-label':'Selected Commercial Works','playlist-link':'Watch full playlist ↗',
-'w1-cat':'AgriTech · New York / New Jersey · 2024','w1-desc':'FPV drone and gimbal cuts collapse the distance between factory floor and dinner plate. Shot on location in New York and New Jersey.',
-'w2-cat':'Heritage Craft · Artware · Japan · 2018','w2-desc':'Objects at the intersection of functional craft and visual art. Shot to honor the weight and texture of physical things in a digital world.',
-'w3-cat':'Deep Tech · Motion Data · Telexistence · 2023','w3-desc':'A launch film making abstract machine-perception tangible. Every shot filmed on actual operational sites.',
-'w4-cat':'Heritage Sake · Kikumasamune · Since 1659','w4-desc':'Cedar barrel brewing, a tradition spanning over 300 years. Lighting and framing drawn from the essence of the subject; clean editing to let that value speak.',
-'join-body':"We are seeking co-creation partners and sponsors for Film 3 & 4. Each film is a co-creation — your investment sends unrepeatable human stories into the world's most important cultural conversations.",
-'btn-touch':'Get in Touch',
-'cl-director':'Director','cv-director':'Daisuke Abe','cl-company':'Company','cv-company':'FULVIS K.K. — Tokyo, Japan',
-'cl-email':'Email','cl-web':'Web','footer-brand':'<strong>FULVIS K.K.</strong>&ensp;·&ensp;Daisuke Abe, Director&ensp;·&ensp;looop01[at]gmail.com',
-},ja:{
-'hero-eyebrow':'IOFF 2026 · サンフランシスコ · 公式選出',
-'hero-sub':'— Movie : Medium of Moments —',
-    'hero-tagline':'旅する、短編ドキュメンタリーシリーズ。',
-'road-movie-tag':'A road movie toward something real.','concept-h1':'レコメンドの圏外へ。<br><em>美しいものに会いにいく。</em>',
-'c1-head':'アルゴリズムを超えて','c1-body':'アルゴリズムが提示する「最適解」から逸脱し、自らの感覚で「本物」と出会うためのロードムービー・シリーズ。スマートフォンの画面の外に、まだ誰にも発見されていない美しさが存在する。',
-'c2-head':'刹那（せつな）','c2-body':'今この瞬間にも、身体の細胞は生まれ変わり、一瞬前の自分とはすでに別の存在になっている。だとしたら、すべての瞬間は奇跡だ。その奇跡を映像に焼きつける。',
-'c3-head':'美を捉える','c3-body':'世界は本来、もっと美しいものだ。「キレイ」や「カワイイ」といった表面的な価値ではなく、人の信念、物事の本質が立ち現れた状態――それが本当の美しさだと思う。その美しさに気づくことが、生きる勇気や歓びにつながると信じている。',
-'axis-body':'伝統的なものづくりから最先端のテクノロジー企業まで、そこにある本質を形作るという映像の役割は同じです。','film1-title':'The Story of<br>Ryuzo Shinomiya<br><span style="font-size:0.75em;color:var(--muted);font-weight:300">篠宮龍三の物語</span>',
-'film1-desc':'世界トップクラスのフリーダイバーであり写真家でもある篠宮龍三。プリミティブな人間の能力と現代テクノロジーが交差する彼の世界を詩的に描いた、MMMのスタイルを確立した原点となる作品。',
-'film1-link':'YouTubeで観る ↗',
-'film2-title':'色彩のシグナル<br><span style="font-size:0.75em;color:var(--muted);font-weight:300;font-style:italic">The Signals of Color</span>',
-'film2-desc':'水中写真家・鍵井靖章は、海岸に漂着したゴミを拾い集め、その上に自身の海中映像を投影するインスタレーションを制作している。オールドレンズで撮影された日本の海岸線を巡るロードムービー。美しさと、生命への責任を問う詩的な作品。',
-'film2-link':'YouTubeでトレーラーを観る ↗',
-'film3-title':'Douglas Weber\'s Quest',
-'film3-desc':'Appleのシニアデザインエンジニアを辞め、九州で陶芸を学び、コーヒーの世界で「長く愛される道具」を追い求めた男がいる。売るための技術ではなく、究極の1杯のための本質だけを宿したプロダクト。彼の飽くなき探求の旅を、糸島で追ったドキュメンタリームービー。',
-'film3-link':'YouTubeで観る ↗',
-
-'model-sub':'FULVISがシリーズ・映画祭・配信のすべての権利を保持。パートナーは制作費なしで映画的なブランドストーリーテリングを得られる。',
-'actor1-head':'FULVIS / ディレクター','actor2-head':'表現パートナー','actor3-head':'スポンサー / 投資家',
-'actor1-1':'企画・撮影・編集・カラー','actor1-2':'映画祭への出品','actor1-3':'シリーズ権利の保持','actor1-4':'編集の独立性',
-'actor2-1':'物語の主人公','actor2-2':'制作費の負担なし','actor2-3':'完成映像の自社利用（無制限）','actor2-4':'ブランドストーリーの共同所有',
-'actor3-1':'旅の投資','actor3-2':'旅費・ロジスティクス・高品質な撮影への投資','actor3-3':'エンドクレジットへの掲載','actor3-4':'映画祭でのブランド露出',
-'model-note':'FULVISは自社メディアを通じて芸術的な声を深め、パートナーは映画的なブランドストーリーテリングを得る。スポンサーは真正な文化的存在感を獲得し、ブランドは決して損なわれることがない。',
-'inc-1':'✓&ensp;全MMM作品へのエンドクレジット掲載','inc-2':'✓&ensp;完成映像の自社媒体での利用権（無制限）','inc-3':'✓&ensp;国際映画祭でのブランド露出','inc-4':'✓&ensp;MMMというカルチャーブランドとの連携',
-'ret-1':'→&ensp;シリーズ権利・映画祭出品権','ret-2':'→&ensp;配信プラットフォームへのライセンス','ret-3':'→&ensp;第三者への配給権','ret-4':'→&ensp;編集の独立性（常に）',
-'phase1-range':'現在〜2本','phase1-1':'権利・ライセンス構造の整備','phase1-2':'スポンサード及び協業体制の確立','phase1-3':'IOFF サンフランシスコ — 投資家アウトリーチ','phase1-4':'',
-'phase2-range':'3〜5本','phase2-1':'1本あたり複数スポンサー体制','phase2-2':'国際映画祭サーキット','phase2-3':'劇場上映・ギャラリー展示','phase2-4':'複数制作チーム体制確立',
-'phase3-range':'10本以上','phase3-1':'シリーズとして配信プラットフォームへのピッチ','phase3-2':'エージェント・配給ディール','phase3-3':'教育・ライセンス収益','phase3-4':'ストック収益',
-'dir-text-1':'東京を拠点に活動する映像ディレクター／シネマトグラファー。アートとフィクション、ドキュメンタリーの境界を横断し作品を作り続けています。私にとって映像制作は、単なる記録ではなく、対象が「生まれ変わる」行為です。私のレンズを通せば、古い機械は力強く主張し始め、人はより自信に満ちた姿として立ち現れる。現実と未来の認識を変えることができると信じています。',
-'dir-text-2':'早稲田大学在学中より、バンド・VJ・DJを融合させた実験的なイベントを主催。VJとギタリストとしてキャリアをスタートさせ、リズムと光に対する独自の感性を養いました。卒業後、映像制作へと軸足を移し、クリエイティブユニット「AIRJOB」を設立。エクストリームスポーツをフィーチャーしたテレビ番組や広告の演出を手掛け、視覚表現の基礎を築きました。',
-'dir-text-3':'2007年には、プロジェクションマッピングをいち早く導入したカフェバー「factory LO」を開業。2013年にはFULVIS株式会社を設立し、SonyやToyota、NECといったグローバルブランドのブランドストーリーテリングから空間演出まで、幅広いフィールドで視覚表現の可能性を追求してきました。',
-'dir-text-4':'広告と映画のあいだを自由に行き来しながら、映像によって対象の価値や認識を更新し、現実の見え方そのものを変える作品を作り続けていきます。',
-
-'w1-desc':'FPVドローンとジンバルのショットをシームレスにつなぎ、工場内の生産過程から消費者の食体験までを一瞬で理解させる構成。ニューヨーク・ニュージャージーにてロケ敢行。',
-'w2-desc':'機能的な工芸と視覚的なアートの交差点に存在する「ARTWARE」というコンセプトを映像化。デジタルが溢れる時代に、物理的なものの重さと質感を讃える作品。',
-'w3-desc':'抽象的な機械知覚の概念を具体的に感じさせるローンチフィルム。すべてのシーンを実際の稼働現場で撮影。',
-'w4-desc':'300年以上続く杉樽仕込みがもたらす酒の価値を、照明とアングルで本質から引き出し、シンプルな編集で浮き彫りにした。',
-'join-body':'mmmは、旅・出会い・光の刹那を捉えるドキュメンタリー映画シリーズです。この感性を共有するブランドを探しています。広告主ではなく、パートナーを。',
-'cv-director':'阿部大輔','cv-company':'FULVIS株式会社 — 東京',
-'footer-brand':'<strong>FULVIS株式会社</strong>&ensp;·&ensp;阿部大輔、ディレクター&ensp;·&ensp;looop01@gmail.com',
-}};
+const T={
+  "en": {
+    "hero-eyebrow": "IOFF 2026 · San Francisco · Official Selection",
+    "hero-sub": "Movie : Medium of Moments",
+    "hero-tagline": "A short film series. On the road.",
+    "road-movie-tag": "A road movie toward something real.",
+    "concept-h1": "Beyond the Recommended. <em>Journeying to encounter the sublime.</em>",
+    "concept-note-lead": "Beyond the guidance of algorithms, toward whatever draws our own senses.<br>In unfamiliar places, we encounter ways of living and the beauty that takes root there.<br>We preserve those unrepeatable moments through the medium of film.",
+    "concept-note-body": "MMM is a short documentary series that shifts, just a little, the way we see the world.",
+    "axis-body": "A selection of commissioned films by Daisuke Abe — from traditional craftsmanship to emerging technology.",
+    "film1-tag": "Documentary · Freediving · Photography",
+    "film1-title": "The Story of<br>Ryuzo Shinomiya",
+    "film1-desc": "World-class freediver and photographer Ryuzo Shinomiya exists at the intersection of primitive human capability and modern technology. The founding work that established the MMM visual language.",
+    "film1-link": "Watch on YouTube ↗",
+    "film2-tag": "Documentary · Ocean · Road Movie",
+    "film2-title": "The Signals<br>of Color",
+    "film2-desc": "Underwater photographer Yasuaki Kagii collects ocean debris and projects his underwater footage onto it — a road movie across Japan's coastlines shot entirely on vintage lenses.",
+    "film2-link": "Watch Trailer on YouTube ↗",
+    "film3-title": "Douglas Weber's Quest",
+    "film3-desc": "He left Apple. Studied ceramics in Kyushu. Then chose a different path — building tools meant to last a lifetime. Not technology for its sake. Just what the perfect cup demands. A documentary film, following his quest through Itoshima.",
+    "film3-link": "Watch on YouTube ↗",
+    "model-sub": "Filmmaker, story partner, and sponsor each bring something different. Together, they make the film possible.",
+    "actor1-head": "FULVIS / Director",
+    "actor2-head": "Creative Partner",
+    "actor3-head": "Sponsor / Investor",
+    "actor1-1": "Concept · Camera · Edit · Color",
+    "actor1-2": "Film festival submission",
+    "actor1-3": "Series rights held",
+    "actor1-4": "Editorial independence",
+    "actor2-1": "Subject of the story",
+    "actor2-2": "No production fee required",
+    "actor2-3": "Unlimited self-use rights",
+    "actor2-4": "Brand story co-ownership",
+    "actor3-1": "Investment in the journey",
+    "actor3-2": "Travel, logistics & high-end cinematography to capture unrepeatable moments",
+    "actor3-3": "End-credit placement",
+    "actor3-4": "Festival brand exposure",
+    "model-note": "FULVIS deepens its artistic voice through its own media. Partners receive cinematic brand storytelling. Sponsors gain authentic cultural presence — and their brand is never compromised.",
+    "inc-head": "Included with sponsorship",
+    "inc-1": "✓&ensp;End-credit placement on all MMM productions",
+    "inc-2": "✓&ensp;Unlimited self-use rights (SNS, Web, events)",
+    "inc-3": "✓&ensp;Brand exposure at international film festivals",
+    "inc-4": "✓&ensp;Association with the MMM cultural brand",
+    "ret-head": "FULVIS retains",
+    "ret-1": "→&ensp;Series rights & film festival submissions",
+    "ret-2": "→&ensp;Streaming platform licensing",
+    "ret-3": "→&ensp;Third-party distribution rights",
+    "ret-4": "→&ensp;Editorial independence — always",
+    "phase1-range": "Now",
+    "phase1-head": "Keep Exploring",
+    "phase1-1": "Build on the first three films",
+    "phase1-2": "Discover new subjects and places",
+    "phase1-3": "Meet partners for future productions",
+    "phase1-4": "Presenting the series at international film festivals",
+    "phase2-range": "Next",
+    "phase2-head": "Reach New Audiences",
+    "phase2-1": "Develop new films with supporting partners",
+    "phase2-3": "Explore screenings and exhibitions",
+    "phase2-4": "Grow the production team as needed",
+    "phase3-range": "Looking Ahead",
+    "phase3-head": "Give the Films a Lasting Life",
+    "phase3-1": "Explore distribution as a series",
+    "phase3-2": "Build relationships with distributors",
+    "phase3-3": "Explore educational screenings and licensing",
+    "phase3-4": "Sustain the creation of future films",
+    "dir-role": "Director / Cinematographer",
+    "dir-text-1": "A Tokyo-based director and cinematographer working at the intersection of art, fiction, and documentary. To me, filmmaking is not merely an act of recording; it is an act of rebirth. Under my lens, old machinery begins to assert itself with new force, and individuals emerge with a confidence they never knew they carried. I believe images can change how we perceive reality and imagine the future.",
+    "dir-text-2": "While studying at Waseda University, I organized experimental events fusing live bands, VJ performance, and DJ sets. Starting as a VJ and guitarist, I developed a personal sensibility for rhythm and light. After graduating, I shifted into filmmaking and founded the creative unit AIRJOB, directing television programs and commercials featuring extreme sports — building the visual foundation that still drives my work today.",
+    "dir-text-3": "In 2007, I opened \"factory LO,\" a café-bar that was among the earliest venues in Japan to integrate projection mapping as a core design element. In 2013, I founded FULVIS K.K. — pursuing visual expression across brand storytelling for global clients such as Sony, Toyota, and NEC through to spatial installations.",
+    "dir-text-4": "Moving freely between advertising and cinema, I continue to make work that renews how we see the things and people around us.",
+    "works-sec-label": "Selected Brand Films",
+    "w1-cat": "AgriTech · New York / New Jersey · 2024",
+    "w1-desc": "FPV drone and gimbal cuts collapse the distance between factory floor and dinner plate. Shot on location in New York and New Jersey.",
+    "w2-cat": "Heritage Craft · Artware · Japan · 2018",
+    "w2-desc": "Objects at the intersection of functional craft and visual art. Shot to honor the weight and texture of physical things in a digital world.",
+    "w3-cat": "Deep Tech · Motion Data · Telexistence · 2023",
+    "w3-desc": "A launch film making abstract machine-perception tangible. Every shot filmed on actual operational sites.",
+    "w4-cat": "Heritage Sake · Kikumasamune · Since 1659",
+    "w4-desc": "Cedar barrel brewing, a tradition spanning over 300 years. Lighting and framing drawn from the essence of the subject; clean editing to let that value speak.",
+    "join-body": "Interested in supporting a future film, sharing a story, or bringing MMM to an audience? We would love to hear from you.",
+    "btn-touch": "Get in Touch",
+    "cl-director": "Director",
+    "cv-director": "Daisuke Abe",
+    "cl-company": "Company",
+    "cv-company": "FULVIS K.K. — Tokyo, Japan",
+    "cl-email": "Email",
+    "cl-web": "Web",
+    "footer-brand": "<strong>FULVIS K.K.</strong>&ensp;·&ensp;Daisuke Abe, Director&ensp;·&ensp;looop01[at]gmail.com",
+    "partner-label": "For Partners",
+    "partner-headline": "Help the next story unfold.",
+    "partner-intro": "We welcome sponsors and collaborators who share our curiosity. Here is where we hope to take MMM, and how we can work together.",
+    "roadmap-sec-label": "Where We’re Going",
+    "roadmap-intro": "Our direction for the series: new encounters, more places to watch, and a lasting life for each film.",
+    "model-sec-label": "How We Collaborate",
+    "partner-cta": "Explore a Partnership →"
+  },
+  "ja": {
+    "hero-eyebrow": "IOFF 2026 · サンフランシスコ · 公式選出",
+    "hero-sub": "— Movie : Medium of Moments —",
+    "hero-tagline": "旅する、短編ドキュメンタリーシリーズ。",
+    "road-movie-tag": "A road movie toward something real.",
+    "concept-h1": "レコメンドの圏外へ、<em>美しいものに会いにいく。</em>",
+    "concept-note-lead": "アルゴリズムの導きではなく、自分の感覚が向かう方へ。<br>まだ知らない地で、人の生き方や、そこに息づく美しさに出会う。<br>二度とないその瞬間を、映画というメディアに焼き付ける。",
+    "concept-note-body": "MMMは、世界を見る目が少し変わる、短編ドキュメンタリーシリーズです。",
+    "axis-body": "伝統的なものづくりから、最先端のテクノロジーまで。阿部大輔が手がけた広告・ブランド映像の一部をご紹介します。",
+    "film1-title": "The Story of<br>Ryuzo Shinomiya<br><span style=\"font-size:0.75em;color:var(--muted);font-weight:300\">篠宮龍三の物語</span>",
+    "film1-desc": "世界トップクラスのフリーダイバーであり写真家でもある篠宮龍三。プリミティブな人間の能力と現代テクノロジーが交差する彼の世界を詩的に描いた、MMMのスタイルを確立した原点となる作品。",
+    "film1-link": "YouTubeで観る ↗",
+    "film2-title": "色彩のシグナル<br><span style=\"font-size:0.75em;color:var(--muted);font-weight:300;font-style:italic\">The Signals of Color</span>",
+    "film2-desc": "水中写真家・鍵井靖章は、海岸に漂着したゴミを拾い集め、その上に自身の海中映像を投影するインスタレーションを制作している。オールドレンズで撮影された日本の海岸線を巡るロードムービー。美しさと、生命への責任を問う詩的な作品。",
+    "film2-link": "YouTubeでトレーラーを観る ↗",
+    "film3-title": "Douglas Weber's Quest",
+    "film3-desc": "Appleのシニアデザインエンジニアを辞め、九州で陶芸を学び、コーヒーの世界で「長く愛される道具」を追い求めた男がいる。売るための技術ではなく、究極の1杯のための本質だけを宿したプロダクト。彼の飽くなき探求の旅を、糸島で追ったドキュメンタリームービー。",
+    "film3-link": "YouTubeで観る ↗",
+    "model-sub": "作り手、物語の主人公、旅を支えるスポンサー。それぞれの力を持ち寄って、一本の映画を形にします。",
+    "actor1-head": "FULVIS / ディレクター",
+    "actor2-head": "表現パートナー",
+    "actor3-head": "スポンサー / 投資家",
+    "actor1-1": "企画・撮影・編集・カラー",
+    "actor1-2": "映画祭への出品",
+    "actor1-3": "シリーズ権利の保持",
+    "actor1-4": "編集の独立性",
+    "actor2-1": "物語の主人公",
+    "actor2-2": "制作費の負担なし",
+    "actor2-3": "完成映像の自社利用（無制限）",
+    "actor2-4": "ブランドストーリーの共同所有",
+    "actor3-1": "旅の投資",
+    "actor3-2": "旅費・ロジスティクス・高品質な撮影への投資",
+    "actor3-3": "エンドクレジットへの掲載",
+    "actor3-4": "映画祭でのブランド露出",
+    "model-note": "FULVISは自社メディアを通じて芸術的な声を深め、パートナーは映画的なブランドストーリーテリングを得る。スポンサーは真正な文化的存在感を獲得し、ブランドは決して損なわれることがない。",
+    "inc-1": "✓&ensp;全MMM作品へのエンドクレジット掲載",
+    "inc-2": "✓&ensp;完成映像の自社媒体での利用権（無制限）",
+    "inc-3": "✓&ensp;国際映画祭でのブランド露出",
+    "inc-4": "✓&ensp;MMMというカルチャーブランドとの連携",
+    "ret-1": "→&ensp;シリーズ権利・映画祭出品権",
+    "ret-2": "→&ensp;配信プラットフォームへのライセンス",
+    "ret-3": "→&ensp;第三者への配給権",
+    "ret-4": "→&ensp;編集の独立性（常に）",
+    "phase1-range": "現在",
+    "phase1-1": "これまでの3作品を起点に",
+    "phase1-2": "新たな被写体と撮影地の探求",
+    "phase1-3": "次の制作をともにするパートナーとの出会い",
+    "phase1-4": "国際映画祭への展開",
+    "phase2-range": "これから",
+    "phase2-1": "パートナーと新たな作品を制作",
+    "phase2-3": "上映会や展示の可能性を探る",
+    "phase2-4": "制作に応じたチームの拡充",
+    "phase3-range": "その先へ",
+    "phase3-1": "シリーズとしての配信を目指す",
+    "phase3-2": "配給パートナーとの関係づくり",
+    "phase3-3": "教育上映・ライセンス活用の検討",
+    "phase3-4": "次の作品を生み出し続けられる活動へ",
+    "dir-text-1": "東京を拠点に活動する映像ディレクター／シネマトグラファー。アートとフィクション、ドキュメンタリーの境界を横断し作品を作り続けています。私にとって映像制作は、単なる記録ではなく、対象が「生まれ変わる」行為です。私のレンズを通せば、古い機械は力強く主張し始め、人はより自信に満ちた姿として立ち現れる。現実と未来の認識を変えることができると信じています。",
+    "dir-text-2": "早稲田大学在学中より、バンド・VJ・DJを融合させた実験的なイベントを主催。VJとギタリストとしてキャリアをスタートさせ、リズムと光に対する独自の感性を養いました。卒業後、映像制作へと軸足を移し、クリエイティブユニット「AIRJOB」を設立。エクストリームスポーツをフィーチャーしたテレビ番組や広告の演出を手掛け、視覚表現の基礎を築きました。",
+    "dir-text-3": "2007年には、プロジェクションマッピングをいち早く導入したカフェバー「factory LO」を開業。2013年にはFULVIS株式会社を設立し、SonyやToyota、NECといったグローバルブランドのブランドストーリーテリングから空間演出まで、幅広いフィールドで視覚表現の可能性を追求してきました。",
+    "dir-text-4": "広告と映画のあいだを自由に行き来しながら、映像によって対象の価値や認識を更新し、現実の見え方そのものを変える作品を作り続けていきます。",
+    "w1-desc": "FPVドローンとジンバルのショットをシームレスにつなぎ、工場内の生産過程から消費者の食体験までを一瞬で理解させる構成。ニューヨーク・ニュージャージーにてロケ敢行。",
+    "w2-desc": "機能的な工芸と視覚的なアートの交差点に存在する「ARTWARE」というコンセプトを映像化。デジタルが溢れる時代に、物理的なものの重さと質感を讃える作品。",
+    "w3-desc": "抽象的な機械知覚の概念を具体的に感じさせるローンチフィルム。すべてのシーンを実際の稼働現場で撮影。",
+    "w4-desc": "300年以上続く杉樽仕込みがもたらす酒の価値を、照明とアングルで本質から引き出し、シンプルな編集で浮き彫りにした。",
+    "join-body": "次の作品へのご支援、物語のご紹介、上映のご相談など。MMMの旅につながる出会いをお待ちしています。",
+    "cv-director": "阿部大輔",
+    "cv-company": "FULVIS株式会社 — 東京",
+    "footer-brand": "<strong>FULVIS株式会社</strong>&ensp;·&ensp;阿部大輔、ディレクター&ensp;·&ensp;looop01@gmail.com",
+    "works-sec-label": "Selected Brand Films",
+    "partner-label": "For Partners",
+    "partner-headline": "次の物語を、ともに。",
+    "partner-intro": "MMMの旅とまなざしに共感するスポンサーや協業パートナーを探しています。ここからは、シリーズのこれからと、参加のかたちをご紹介します。",
+    "roadmap-sec-label": "Where We’re Going",
+    "roadmap-intro": "新しい出会いを重ね、作品を届ける場所を広げ、一本一本が長く観られていくシリーズを目指しています。",
+    "phase1-head": "次の出会いへ",
+    "phase2-head": "観客との接点を広げる",
+    "phase3-head": "作品が長く生きるために",
+    "model-sec-label": "How We Collaborate",
+    "partner-cta": "パートナーシップについて →",
+    "dir-role": "Director / Cinematographer"
+  }
+};
 
 let currentLang = 'en';
 function setLang(lang) {
@@ -1210,7 +1276,7 @@ function setLang(lang) {
 
 function openShowreel() {
   const modal = document.getElementById('showreel-modal');
-  document.getElementById('showreel-iframe').src = 'https://www.youtube.com/embed/-ZTkqN1-7m4?autoplay=1&rel=0';
+  document.getElementById('showreel-iframe').src = 'https://www.youtube.com/embed/K875cAhB83I?autoplay=1&rel=0';
   modal.style.display = 'flex';
   document.body.style.overflow = 'hidden';
 }
